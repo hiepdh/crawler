@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CrawlerModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="CrawlerEntities">
+    <EntitySet Name="Attribues" EntityType="CrawlerModel.Attribue" />
+    <EntitySet Name="Posts" EntityType="CrawlerModel.Post" />
+    <EntitySet Name="Post_Attribue" EntityType="CrawlerModel.Post_Attribue" />
+    <EntitySet Name="Sites" EntityType="CrawlerModel.Site" />
+    <EntitySet Name="Site_Attribute" EntityType="CrawlerModel.Site_Attribute" />
+  </EntityContainer>
+  <EntityType Name="Attribue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Key" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="KeyName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ValueType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsInit" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="SiteId" Type="Int32" />
+    <Property Name="SiteUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Province" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="District" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LinkMore" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="AuthName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="AuthMobile" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="AuthEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Post_Attribue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SiteGroupId" Type="Int32" Nullable="false" />
+    <Property Name="SiteId" Type="Int32" Nullable="false" />
+    <Property Name="PostId" Type="Int32" Nullable="false" />
+    <Property Name="AttribueKey" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AttribueValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PostUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Site">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="SiteUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SiteName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Order" Type="Int16" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="MaxPage" Type="Int16" />
+    <Property Name="PageUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PageRootXpath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PageDetailXpath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Site_Attribute">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="SiteGroupId" Type="Int32" Nullable="false" />
+    <Property Name="AttributeKey" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="XPath" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+    <Property Name="PageType" Type="Boolean" />
+  </EntityType>
+</Schema>

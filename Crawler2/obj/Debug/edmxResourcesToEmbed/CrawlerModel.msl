@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="CrawlerModelStoreContainer" CdmEntityContainer="CrawlerEntities">
+    <EntitySetMapping Name="Attribues">
+      <EntityTypeMapping TypeName="CrawlerModel.Attribue">
+        <MappingFragment StoreEntitySet="Attribue">
+          <ScalarProperty Name="IsInit" ColumnName="IsInit" />
+          <ScalarProperty Name="ValueType" ColumnName="ValueType" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="KeyName" ColumnName="KeyName" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="CrawlerModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="AuthEmail" ColumnName="AuthEmail" />
+          <ScalarProperty Name="AuthMobile" ColumnName="AuthMobile" />
+          <ScalarProperty Name="AuthName" ColumnName="AuthName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="LinkMore" ColumnName="LinkMore" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PostUrl" ColumnName="PostUrl" />
+          <ScalarProperty Name="SiteUrl" ColumnName="SiteUrl" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post_Attribue">
+      <EntityTypeMapping TypeName="CrawlerModel.Post_Attribue">
+        <MappingFragment StoreEntitySet="Post_Attribue">
+          <ScalarProperty Name="PostUrl" ColumnName="PostUrl" />
+          <ScalarProperty Name="AttribueValue" ColumnName="AttribueValue" />
+          <ScalarProperty Name="AttribueKey" ColumnName="AttribueKey" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="SiteGroupId" ColumnName="SiteGroupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sites">
+      <EntityTypeMapping TypeName="CrawlerModel.Site">
+        <MappingFragment StoreEntitySet="Site">
+          <ScalarProperty Name="PageDetailXpath" ColumnName="PageDetailXpath" />
+          <ScalarProperty Name="PageRootXpath" ColumnName="PageRootXpath" />
+          <ScalarProperty Name="PageUrl" ColumnName="PageUrl" />
+          <ScalarProperty Name="MaxPage" ColumnName="MaxPage" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="SiteUrl" ColumnName="SiteUrl" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Site_Attribute">
+      <EntityTypeMapping TypeName="CrawlerModel.Site_Attribute">
+        <MappingFragment StoreEntitySet="Site_Attribute">
+          <ScalarProperty Name="PageType" ColumnName="PageType" />
+          <ScalarProperty Name="XPath" ColumnName="XPath" />
+          <ScalarProperty Name="AttributeKey" ColumnName="AttributeKey" />
+          <ScalarProperty Name="SiteGroupId" ColumnName="SiteGroupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

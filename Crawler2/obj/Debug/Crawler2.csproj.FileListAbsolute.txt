@@ -1,0 +1,11 @@
+H:\hiepdh\Own's info\bds5s\crawler\Crawler2\bin\Debug\Crawler2.exe.config
+H:\hiepdh\Own's info\bds5s\crawler\Crawler2\bin\Debug\Crawler2.exe
+H:\hiepdh\Own's info\bds5s\crawler\Crawler2\bin\Debug\Crawler2.pdb
+H:\hiepdh\Own's info\bds5s\crawler\Crawler2\bin\Debug\HtmlAgilityPack.dll
+H:\hiepdh\Own's info\bds5s\crawler\Crawler2\bin\Debug\HtmlAgilityPack.pdb
+H:\hiepdh\Own's info\bds5s\crawler\Crawler2\bin\Debug\HtmlAgilityPack.xml
+H:\hiepdh\Own's info\bds5s\crawler\Crawler2\obj\Debug\Crawler2.exe
+H:\hiepdh\Own's info\bds5s\crawler\Crawler2\obj\Debug\Crawler2.pdb
+H:\hiepdh\Own's info\bds5s\crawler\Crawler2\bin\Debug\Newtonsoft.Json.dll
+H:\hiepdh\Own's info\bds5s\crawler\Crawler2\bin\Debug\Newtonsoft.Json.xml
+H:\hiepdh\Own's info\bds5s\crawler\Crawler2\obj\Debug\Crawler2.csprojResolveAssemblyReference.cache

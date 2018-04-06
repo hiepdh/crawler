@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CrawlerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityType Name="Attribue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Key" Type="varchar" MaxLength="150" />
+          <Property Name="KeyName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Value" Type="nvarchar(max)" />
+          <Property Name="ValueType" Type="varchar" MaxLength="50" />
+          <Property Name="IsInit" Type="bit" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SiteId" Type="int" />
+          <Property Name="SiteUrl" Type="varchar" MaxLength="50" />
+          <Property Name="PostUrl" Type="varchar" MaxLength="250" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Province" Type="varchar" MaxLength="150" />
+          <Property Name="District" Type="varchar" MaxLength="150" />
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+          <Property Name="Image" Type="varchar" MaxLength="250" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Descriptions" Type="nvarchar(max)" />
+          <Property Name="LinkMore" Type="varchar" MaxLength="150" />
+          <Property Name="Price" Type="varchar" MaxLength="150" />
+          <Property Name="AuthName" Type="nvarchar" MaxLength="250" />
+          <Property Name="AuthMobile" Type="varchar" MaxLength="150" />
+          <Property Name="AuthEmail" Type="varchar" MaxLength="150" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Post_Attribue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiteGroupId" Type="int" Nullable="false" />
+          <Property Name="SiteId" Type="int" Nullable="false" />
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="AttribueKey" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AttribueValue" Type="nvarchar(max)" />
+          <Property Name="PostUrl" Type="varchar" MaxLength="350" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="GroupId" Type="int" />
+          <Property Name="SiteUrl" Type="varchar" MaxLength="50" />
+          <Property Name="SiteName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Order" Type="smallint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="MaxPage" Type="smallint" />
+          <Property Name="PageUrl" Type="varchar" MaxLength="500" />
+          <Property Name="PageRootXpath" Type="varchar" MaxLength="500" />
+          <Property Name="PageDetailXpath" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Site_Attribute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SiteGroupId" Type="int" Nullable="false" />
+          <Property Name="AttributeKey" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="XPath" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="PageType" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="CrawlerModelStoreContainer">
+          <EntitySet Name="Attribue" EntityType="Self.Attribue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post_Attribue" EntityType="Self.Post_Attribue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Site" EntityType="Self.Site" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Site_Attribute" EntityType="Self.Site_Attribute" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CrawlerModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="CrawlerEntities">
+          <EntitySet Name="Attribues" EntityType="CrawlerModel.Attribue" />
+          <EntitySet Name="Posts" EntityType="CrawlerModel.Post" />
+          <EntitySet Name="Post_Attribue" EntityType="CrawlerModel.Post_Attribue" />
+          <EntitySet Name="Sites" EntityType="CrawlerModel.Site" />
+          <EntitySet Name="Site_Attribute" EntityType="CrawlerModel.Site_Attribute" />
+        </EntityContainer>
+        <EntityType Name="Attribue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Key" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="KeyName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ValueType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsInit" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SiteId" Type="Int32" />
+          <Property Name="SiteUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PostUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="District" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LinkMore" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AuthName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AuthMobile" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AuthEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Post_Attribue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiteGroupId" Type="Int32" Nullable="false" />
+          <Property Name="SiteId" Type="Int32" Nullable="false" />
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="AttribueKey" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AttribueValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PostUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="SiteUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SiteName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Order" Type="Int16" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="MaxPage" Type="Int16" />
+          <Property Name="PageUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PageRootXpath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PageDetailXpath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Site_Attribute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SiteGroupId" Type="Int32" Nullable="false" />
+          <Property Name="AttributeKey" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="XPath" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="PageType" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="CrawlerModelStoreContainer" CdmEntityContainer="CrawlerEntities">
+          <EntitySetMapping Name="Attribues">
+            <EntityTypeMapping TypeName="CrawlerModel.Attribue">
+              <MappingFragment StoreEntitySet="Attribue">
+                <ScalarProperty Name="IsInit" ColumnName="IsInit" />
+                <ScalarProperty Name="ValueType" ColumnName="ValueType" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="KeyName" ColumnName="KeyName" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="CrawlerModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="AuthEmail" ColumnName="AuthEmail" />
+                <ScalarProperty Name="AuthMobile" ColumnName="AuthMobile" />
+                <ScalarProperty Name="AuthName" ColumnName="AuthName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="LinkMore" ColumnName="LinkMore" />
+                <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PostUrl" ColumnName="PostUrl" />
+                <ScalarProperty Name="SiteUrl" ColumnName="SiteUrl" />
+                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post_Attribue">
+            <EntityTypeMapping TypeName="CrawlerModel.Post_Attribue">
+              <MappingFragment StoreEntitySet="Post_Attribue">
+                <ScalarProperty Name="PostUrl" ColumnName="PostUrl" />
+                <ScalarProperty Name="AttribueValue" ColumnName="AttribueValue" />
+                <ScalarProperty Name="AttribueKey" ColumnName="AttribueKey" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+                <ScalarProperty Name="SiteGroupId" ColumnName="SiteGroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sites">
+            <EntityTypeMapping TypeName="CrawlerModel.Site">
+              <MappingFragment StoreEntitySet="Site">
+                <ScalarProperty Name="PageDetailXpath" ColumnName="PageDetailXpath" />
+                <ScalarProperty Name="PageRootXpath" ColumnName="PageRootXpath" />
+                <ScalarProperty Name="PageUrl" ColumnName="PageUrl" />
+                <ScalarProperty Name="MaxPage" ColumnName="MaxPage" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="SiteUrl" ColumnName="SiteUrl" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Site_Attribute">
+            <EntityTypeMapping TypeName="CrawlerModel.Site_Attribute">
+              <MappingFragment StoreEntitySet="Site_Attribute">
+                <ScalarProperty Name="PageType" ColumnName="PageType" />
+                <ScalarProperty Name="XPath" ColumnName="XPath" />
+                <ScalarProperty Name="AttributeKey" ColumnName="AttributeKey" />
+                <ScalarProperty Name="SiteGroupId" ColumnName="SiteGroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CrawlerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityType Name="Attribue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Key" Type="varchar" MaxLength="150" />
+    <Property Name="KeyName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Value" Type="nvarchar(max)" />
+    <Property Name="ValueType" Type="varchar" MaxLength="50" />
+    <Property Name="IsInit" Type="bit" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="SiteId" Type="int" />
+    <Property Name="SiteUrl" Type="varchar" MaxLength="50" />
+    <Property Name="PostUrl" Type="varchar" MaxLength="250" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Province" Type="varchar" MaxLength="150" />
+    <Property Name="District" Type="varchar" MaxLength="150" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Image" Type="varchar" MaxLength="250" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Descriptions" Type="nvarchar(max)" />
+    <Property Name="LinkMore" Type="varchar" MaxLength="150" />
+    <Property Name="Price" Type="varchar" MaxLength="150" />
+    <Property Name="AuthName" Type="nvarchar" MaxLength="250" />
+    <Property Name="AuthMobile" Type="varchar" MaxLength="150" />
+    <Property Name="AuthEmail" Type="varchar" MaxLength="150" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Post_Attribue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteGroupId" Type="int" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="PostId" Type="int" Nullable="false" />
+    <Property Name="AttribueKey" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AttribueValue" Type="nvarchar(max)" />
+    <Property Name="PostUrl" Type="varchar" MaxLength="350" />
+  </EntityType>
+  <EntityType Name="Site">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="GroupId" Type="int" />
+    <Property Name="SiteUrl" Type="varchar" MaxLength="50" />
+    <Property Name="SiteName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Order" Type="smallint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="MaxPage" Type="smallint" />
+    <Property Name="PageUrl" Type="varchar" MaxLength="500" />
+    <Property Name="PageRootXpath" Type="varchar" MaxLength="500" />
+    <Property Name="PageDetailXpath" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Site_Attribute">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="SiteGroupId" Type="int" Nullable="false" />
+    <Property Name="AttributeKey" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="XPath" Type="varchar" MaxLength="350" Nullable="false" />
+    <Property Name="PageType" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="CrawlerModelStoreContainer">
+    <EntitySet Name="Attribue" EntityType="Self.Attribue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post_Attribue" EntityType="Self.Post_Attribue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Site" EntityType="Self.Site" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Site_Attribute" EntityType="Self.Site_Attribute" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
